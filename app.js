@@ -9,7 +9,12 @@ const fileUpload = require("express-fileupload");
 const path = require("path");
 
 const errorMiddleware = require("./middlewares/errors");
-app.use(cors())
+app.use(cors(
+  {
+    origin: 'https://book-store-sandy.vercel.app/', 
+    credentials: true,
+  }
+))
 // Setting up config file
 if (process.env.NODE_ENV !== "PRODUCTION")
   require("dotenv").config({ path: "config/config.env" });
