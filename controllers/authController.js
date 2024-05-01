@@ -51,11 +51,11 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     }
 
     // Checks if password is correct or not
-    //const isPasswordMatched = await bcrypt.compare(password,user.password);
+    const isPasswordMatched = await bcrypt.compare(password,user.password);
 
-    // if (!isPasswordMatched) {
-    //     return next(new ErrorHandler('Invalid Email or Password', 401));
-    // }
+    if (!isPasswordMatched) {
+        return next(new ErrorHandler('Invalid Email or Password', 401));
+    }
 
     sendToken(user, 200, res)
 })
