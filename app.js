@@ -11,7 +11,7 @@ const path = require("path");
 const errorMiddleware = require("./middlewares/errors");
 app.use(cors(
   {
-    origin: 'https://book-store-sandy.vercel.app/', 
+    origin: 'https://book-store-sandy.vercel.app', 
     credentials: true,
   }
 ))
